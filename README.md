@@ -12,7 +12,7 @@
 
 
 #### Model Sources:
-`/projects/convai2/baselines/transformer`
+`projects/convai2/baselines/transformer`
 
 `parlai/agents/transformer`
 
