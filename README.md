@@ -10,6 +10,9 @@
 
 2- Ehsan Hosseini-Asl, Salesforce Research, ehosseiniasl@salesforce.com, ehsan.hosseiniasl@gmail.com
 
+#### Model Sources:
+`/projects/convai2/baselines/transformer`
+`parlai/agents/transformer`
 
 #### Model Path:
 `./checkpoints/convai2_transformer_[l=2,h=4,dw=256,dm=256,di=2048,dk=64,dv=64,src_tgt_share=False,tgt_prj=False,smooth=False]`
