@@ -30,3 +30,12 @@
 
 ### Train Command with Hyperparameters:
 ```./command_train_transformer.sh```
+
+
+#### Challenge organizers:
+@madrugado 
+@varvara-l
+@JackUrb
+@jaseweston
+@klshuster
+@emilydinan
