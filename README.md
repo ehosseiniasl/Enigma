@@ -16,11 +16,11 @@
 
 `parlai/agents/transformer`
 
-1- Model is based on transformer network
+***1- Model is based on transformer network***
 
-2- No ensembling is used
+***2- No ensembling is used***
 
-3- No data augmentation is used
+***3- No data augmentation is used***
 
 #### Model Path:
 `./checkpoints/convai2_transformer_[l=2,h=4,dw=256,dm=256,di=2048,dk=64,dv=64,src_tgt_share=False,tgt_prj=False,smooth=False]`
