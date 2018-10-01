@@ -28,5 +28,5 @@
 `valid ppl=38.65`
 
 
-#### Train Command with Hyperparameters:
+### Train Command with Hyperparameters:
 ```./command_train_transformer.sh```
