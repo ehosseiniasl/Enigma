@@ -16,7 +16,7 @@ if __name__ == '__main__':
     parser.set_defaults(
         task='convai2:self',
         model='transformer',
-        model_file='/tmp/convai2_self_transformer_model',
+        model_file='./checkpoints/convai2_transformer_[l=2,h=2,dw=256,dm=256,di=2048,dk=64,dv=64,src_tgt_share=False,tgt_prj=False,smooth=False]',
         dict_lower=True,
         dict_include_valid=False,
         dict_maxexs=-1,
