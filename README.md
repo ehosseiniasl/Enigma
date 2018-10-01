@@ -12,7 +12,7 @@
 
 
 #### Model Path:
-./checkpoints/convai2_transformer_[l=2,h=2,dw=256,dm=256,di=2048,dk=64,dv=64,src_tgt_share=False,tgt_prj=False,smooth=False].best_valid
+`./checkpoints/convai2_transformer_[l=2,h=2,dw=256,dm=256,di=2048,dk=64,dv=64,src_tgt_share=False,tgt_prj=False,smooth=False].best_valid`
 
 #### Train Command:
-./command_train_transformer.sh
+`./command_train_transformer.sh`
