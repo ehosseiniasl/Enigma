@@ -34,13 +34,8 @@
 
 #### Challenge organizers:
 @madrugado 
-
 @varvara-l
-
 @JackUrb
-
 @jaseweston
-
 @klshuster
-
 @emilydinan
