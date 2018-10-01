@@ -6,9 +6,9 @@
 
 ### Team Members:
 
-1- Elnaz Nouri, Microsoft Research, Elnaz.Nouri@microsoft.com 
+1- Elnaz Nouri, Microsoft Research, Elnaz.Nouri@microsoft.com, elnaaz@gmail.com 
 
-2- Ehsan Hosseini-Asl, Salesforce Research, ehosseiniasl@salesforce.com
+2- Ehsan Hosseini-Asl, Salesforce Research, ehosseiniasl@salesforce.com, ehsan.hosseiniasl@gmail.com
 
 
 #### Model Path:
