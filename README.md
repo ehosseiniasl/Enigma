@@ -19,7 +19,7 @@
 #### Model Path:
 `./checkpoints/convai2_transformer_[l=2,h=4,dw=256,dm=256,di=2048,dk=64,dv=64,src_tgt_share=False,tgt_prj=False,smooth=False]`
 
-`valid ppl=38.98`
+`valid ppl=38.69`
 
 
 #### Train Command:
