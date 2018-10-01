@@ -2,7 +2,7 @@
 GPU=5
 CHECKPOINT=/export/home/ehsan/ParlAI/checkpoints
 LAYER=2
-HEAD=2
+HEAD=4
 DK=64
 DV=64
 D_MODEL=256
