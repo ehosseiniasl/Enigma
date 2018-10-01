@@ -16,7 +16,7 @@ if __name__ == '__main__':
     parser.set_defaults(
         task='convai2:self',
         model='transformer',
-        model_file='./checkpoints/convai2_transformer_[l=2,h=4,dw=256,dm=256,di=2048,dk=64,dv=64,src_tgt_share=False,tgt_prj=False,smooth=False]',
+        model_file='./checkpoints/convai2_transformer_volta_[l=4,h=2,dw=256,dm=256,di=2048,dk=64,dv=64,src_tgt_share=False,tgt_prj=False,smooth=False]',
         dict_lower=True,
         dict_include_valid=False,
         dict_maxexs=-1,
@@ -25,7 +25,7 @@ if __name__ == '__main__':
         hiddensize=1024,
         embeddingsize=256,
         attention='general',
-        numlayers=2,
+        numlayers=4,
         rnn_class='lstm',
         learningrate=3,
         dropout=0.1,
@@ -48,7 +48,7 @@ if __name__ == '__main__':
         d_word_vec=256,
         d_model = 256,
         d_inner = 2048,
-        n_head = 4,
+        n_head = 2,
         d_k = 64,
         d_v = 64,
         )

@@ -1,8 +1,8 @@
 
 GPU=5
 CHECKPOINT=/export/home/ehsan/ParlAI/checkpoints
-LAYER=2
-HEAD=4
+LAYER=4
+HEAD=2
 DK=64
 DV=64
 D_MODEL=256
@@ -14,7 +14,7 @@ SMOOTH=False
 MAX_LEN=600
 EPOCHS=20000
 
-EXPERIMENT=convai2_transformer_[l=${LAYER},h=${HEAD},dw=${D_WORD},dm=${D_MODEL},di=${D_INNER},dk=${DK},dv=${DV},src_tgt_share=${SRC_TGT},tgt_prj=${TGT_PRJ},smooth=${SMOOTH}]
+EXPERIMENT=convai2_transformer_volta_[l=${LAYER},h=${HEAD},dw=${D_WORD},dm=${D_MODEL},di=${D_INNER},dk=${DK},dv=${DV},src_tgt_share=${SRC_TGT},tgt_prj=${TGT_PRJ},smooth=${SMOOTH}]
 MODEL_FILE=$CHECKPOINT/$EXPERIMENT
 TAG=model,numlayers,n_head,d_word_vec,d_model,d_inner,d_k,d_v
 
