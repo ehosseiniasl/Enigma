@@ -16,9 +16,9 @@ if __name__ == '__main__':
     parser.set_params(
         model='parlai.agents.transformer.transformer:PerplexityEvaluatorAgent',
         #model_file='models:convai2/transformer/convai2_self_transformer_model',
-        model_file='./checkpoints/convai2_transformer_[l=2,h=2,dw=256,dm=256,di=2048,dk=64,dv=64,src_tgt_share=False,tgt_prj=False,smooth=False]',
+        model_file='./checkpoints/convai2_transformer_[l=2,h=4,dw=256,dm=256,di=2048,dk=64,dv=64,src_tgt_share=False,tgt_prj=False,smooth=False]',
         #dict_file='models:convai2/transformer/convai2_self_transformer_model.dict',
-        dict_file='./checkpoints/convai2_transformer_[l=2,h=2,dw=256,dm=256,di=2048,dk=64,dv=64,src_tgt_share=False,tgt_prj=False,smooth=False].dict',
+        dict_file='./checkpoints/convai2_transformer_[l=2,h=4,dw=256,dm=256,di=2048,dk=64,dv=64,src_tgt_share=False,tgt_prj=False,smooth=False].dict',
         dict_lower=True,
         batchsize=1,
         numthreads=60,
@@ -31,8 +31,8 @@ if __name__ == '__main__':
         #fnames = ['convai2_self_transformer_model.tgz',
         #          'convai2_self_transformer_model.dict',
         #          'convai2_self_transformer_model.opt'],
-        fnames = ['convai2_transformer_[l=2,h=2,dw=256,dm=256,di=2048,dk=64,dv=64,src_tgt_share=False,tgt_prj=False,smooth=False].tgz',
-                'convai2_transformer_[l=2,h=2,dw=256,dm=256,di=2048,dk=64,dv=64,src_tgt_share=False,tgt_prj=False,smooth=False].dict'
-                'convai2_transformer_[l=2,h=2,dw=256,dm=256,di=2048,dk=64,dv=64,src_tgt_share=False,tgt_prj=False,smooth=False].opt']
+        fnames = ['convai2_transformer_[l=2,h=4,dw=256,dm=256,di=2048,dk=64,dv=64,src_tgt_share=False,tgt_prj=False,smooth=False].tgz',
+                'convai2_transformer_[l=2,h=4,dw=256,dm=256,di=2048,dk=64,dv=64,src_tgt_share=False,tgt_prj=False,smooth=False].dict'
+                'convai2_transformer_[l=2,h=4,dw=256,dm=256,di=2048,dk=64,dv=64,src_tgt_share=False,tgt_prj=False,smooth=False].opt']
         download_models(opt, fnames, 'convai2', version='v3.0')
     eval_ppl(opt)
