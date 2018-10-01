@@ -17,7 +17,9 @@
 `parlai/agents/transformer`
 
 1- Model is based on transformer network
+
 2- No ensembling is used
+
 3- No data augmentation is used
 
 #### Model Path:
