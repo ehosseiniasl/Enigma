@@ -48,7 +48,7 @@ if __name__ == '__main__':
         d_word_vec=256,
         d_model = 256,
         d_inner = 2048,
-        n_head = 2,
+        n_head = 4,
         d_k = 64,
         d_v = 64,
         )
