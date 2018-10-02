@@ -741,7 +741,7 @@ class mydefaultdict(defaultdict):
         return super().get(key, default or self.default_factory())
 
 
-class PerplexityEvaluatorAgent(Transformer):
+class PerplexityEvaluatorAgent(TransformerAgent):
     """Subclass for doing standardized perplexity evaluation.
 
     This is designed to be used in conjunction with the PerplexityWorld at
