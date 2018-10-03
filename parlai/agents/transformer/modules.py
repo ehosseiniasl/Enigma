@@ -436,8 +436,8 @@ class Transformer(nn.Module):
                 if not active_inst_idx_list:
                     break  # all instances have finished their path to <EOS>
 
-                #src_seq, src_enc, inst_idx_to_position_map = collate_active_info(
-                #    src_seq, src_enc, inst_idx_to_position_map, active_inst_idx_list, device)
+                src_seq, src_enc, inst_idx_to_position_map = collate_active_info(
+                   src_seq, src_enc, inst_idx_to_position_map, active_inst_idx_list, device)
                 word_probs_list.append(word_prob)
         
         #n_best = 1
