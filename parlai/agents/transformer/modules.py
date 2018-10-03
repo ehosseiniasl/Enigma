@@ -383,7 +383,7 @@ class Transformer(nn.Module):
                     if not is_inst_complete:
                         active_inst_idx_list += [inst_idx]
 
-                return active_inst_idx_list
+                return active_inst_idx_list, word_prob
 
             n_active_inst = len(inst_idx_to_position_map)
 
@@ -427,21 +427,24 @@ class Transformer(nn.Module):
             inst_idx_to_position_map = get_inst_idx_to_tensor_position_map(active_inst_idx_list)
 
             #-- Decode
+            word_probs_list = []
             for len_dec_seq in range(1, self.opt['max_token_seq_len'] + 1):
 
-                active_inst_idx_list = beam_decode_step(
+                active_inst_idx_list, word_prob = beam_decode_step(
                     inst_dec_beams, len_dec_seq, src_seq, src_enc, inst_idx_to_position_map, n_bm, device)
 
                 if not active_inst_idx_list:
                     break  # all instances have finished their path to <EOS>
 
-                src_seq, src_enc, inst_idx_to_position_map = collate_active_info(
-                    src_seq, src_enc, inst_idx_to_position_map, active_inst_idx_list, device)
+                #src_seq, src_enc, inst_idx_to_position_map = collate_active_info(
+                #    src_seq, src_enc, inst_idx_to_position_map, active_inst_idx_list, device)
+                word_probs_list.append(word_prob)
         
-        n_best = 1
-        batch_hyp, batch_scores = collect_hypothesis_and_scores(inst_dec_beams, n_best)
+        #n_best = 1
+        #batch_hyp, batch_scores = collect_hypothesis_and_scores(inst_dec_beams, n_best)
 
-        return batch_hyp, batch_scores
+        #return batch_hyp, batch_scores
+        return word_probs_list
 
     def evaluate(self, src_seq):
 

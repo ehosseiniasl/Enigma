@@ -549,10 +549,11 @@ class TransformerAgent(Agent):
             #     out = self.model(xs, ys=None, cands=cands, valid_cands=valid_cands, beam_size=self.beam_size, topk=self.topk)
             # else:
             #     out = self.model(xs, ys=None, cands=cands, beam_size=self.beam_size, topk=self.topk)
+            #ipdb.set_trace()
             if ys is None:
                 out = self.model.evaluate(xs)
                 # predictions, cand_preds = out[0], out[2]
-                predicted, scores = out
+                scores = out
                 cand_preds = None
                 pred_arr = [torch.tensor(p[0]) for p in predicted]
                 predictions = torch.stack(pred_arr)
@@ -773,24 +774,38 @@ class PerplexityEvaluatorAgent(TransformerAgent):
         batch = self.vectorize([obs])
 
         xs, ys = batch[0], batch[1]
-        if self.prev_enc is not None and self.last_xs is not None and (
-                xs.shape[1] != self.last_xs.shape[1] or
-                (xs == self.last_xs).sum().item() != xs.shape[1]):
-            # reset prev_enc, this is a new input
-            self.prev_enc = None
-        self.last_xs = xs
+        # if self.prev_enc is not None and self.last_xs is not None and (
+        #         xs.shape[1] != self.last_xs.shape[1] or
+        #         (xs == self.last_xs).sum().item() != xs.shape[1]):
+        #     # reset prev_enc, this is a new input
+        #     self.prev_enc = None
+        # self.last_xs = xs
+
 
         self.model.eval()
-        # no need to predict farther ahead
-        # if you pass in any ys, this will be ignored
-        self.model.longest_label = 1
-        out = self.model(
-            xs,
-            ys=(ys if len(partial_out) > 0 else None),
-            prev_enc=self.prev_enc)
-        scores, self.prev_enc = out[1], out[4]
+
+        # # no need to predict farther ahead
+        # # if you pass in any ys, this will be ignored
+        # self.model.longest_label = 1
+        # out = self.model(
+        #     xs,
+        #     ys=(ys if len(partial_out) > 0 else None),
+        #     prev_enc=self.prev_enc)
+        # scores, self.prev_enc = out[1], out[4]
+
+        scores = self.model.evaluate(xs)
+        # predictions, cand_preds = out[0], out[2]
+        #predicted, scores = out
+        #scores = torch.FloatTensor(scores)
+        #probs = F.softmax(scores, dim=1).squeeze()
+        # cand_preds = None
+        # pred_arr = [torch.tensor(p[0]) for p in predicted]
+        # predictions = torch.stack(pred_arr)
+
+
         # scores is bsz x seqlen x num_words, so select probs of current index
-        probs = F.softmax(scores.select(1, -1), dim=1).squeeze()
+        #probs = F.softmax(scores.select(1, -1), dim=1).squeeze()
+        probs = F.softmax(scores[-1], dim=2).squeeze()
         dist = mydefaultdict(lambda: 1e-7)  # default probability for any token
         for i in range(len(probs)):
             dist[self.dict[i]] = probs[i].item()
