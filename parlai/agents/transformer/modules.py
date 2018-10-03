@@ -383,7 +383,7 @@ class Transformer(nn.Module):
                     if not is_inst_complete:
                         active_inst_idx_list += [inst_idx]
 
-                return active_inst_idx_list, word_prob
+                return active_inst_idx_list
 
             n_active_inst = len(inst_idx_to_position_map)
 
@@ -395,7 +395,7 @@ class Transformer(nn.Module):
             active_inst_idx_list = collect_active_inst_idx_list(
                 inst_dec_beams, word_prob, inst_idx_to_position_map)
 
-            return active_inst_idx_list
+            return active_inst_idx_list, word_prob
 
         def collect_hypothesis_and_scores(inst_dec_beams, n_best):
             all_hyp, all_scores = [], []
@@ -427,8 +427,9 @@ class Transformer(nn.Module):
             inst_idx_to_position_map = get_inst_idx_to_tensor_position_map(active_inst_idx_list)
 
             #-- Decode
+            len_max_seq = 1
             word_probs_list = []
-            for len_dec_seq in range(1, self.opt['max_token_seq_len'] + 1):
+            for len_dec_seq in range(1, len_max_seq + 1):
 
                 active_inst_idx_list, word_prob = beam_decode_step(
                     inst_dec_beams, len_dec_seq, src_seq, src_enc, inst_idx_to_position_map, n_bm, device)
