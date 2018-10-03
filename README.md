@@ -25,6 +25,8 @@
 ### Model Path:
 ```./checkpoints/convai2_transformer_volta_[l=4,h=2,dw=256,dm=256,di=2048,dk=64,dv=64,src_tgt_share=False,tgt_prj=False,smooth=False]```
 
+`valid F1=0.2894`
+
 `valid ppl=37.99`
 
 
