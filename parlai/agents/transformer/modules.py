@@ -301,8 +301,8 @@ class Transformer(nn.Module):
             loss = -(one_hot * log_prb).sum(dim=1)
             loss = loss.masked_select(non_pad_mask).sum()  # average later
         else:
-            #loss = F.cross_entropy(pred, gold, ignore_index=Constants.PAD, reduce=True)
-            loss = F.cross_entropy(pred, gold, ignore_index=Constants.PAD, reduction='sum')
+            loss = F.cross_entropy(pred, gold, ignore_index=Constants.PAD, reduce=True)
+            # loss = F.cross_entropy(pred, gold, ignore_index=Constants.PAD, reduction='sum')
 
         return loss
 
